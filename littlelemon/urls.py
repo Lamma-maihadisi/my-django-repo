@@ -23,10 +23,12 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter(trailing_slash=False)
 router.register(r'', BookingViewSet, basename='booking')
-# DefaultRouter.register(r'tables', BookingViewSet)
+# # DefaultRouter.register(r'tables', BookingViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('restaurant/', include('restaurant.urls')),
-    path('restaurant/booking/', include(router.urls))
+    path('restaurant/booking/', include(router.urls)),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.authtoken'))
 ]
